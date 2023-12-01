@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'Building version ${VERSION}'
+        echo "Building version ${VERSION}"
         // Here you can define commands for your build
       }
     }
