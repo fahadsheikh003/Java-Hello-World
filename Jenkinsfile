@@ -2,6 +2,10 @@ flag = false
 
 pipeline {
   agent any
+  tools {
+    maven 'Maven'
+  }
+  
   environment {
     VERSION = '88.93.12'
   }
@@ -10,6 +14,7 @@ pipeline {
     stage('Build') {
       steps {
         echo "Building version ${VERSION}"
+        bat "npm --version"
         // Here you can define commands for your build
       }
     }
