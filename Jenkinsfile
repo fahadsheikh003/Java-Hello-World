@@ -2,10 +2,14 @@ flag = false
 
 pipeline {
   agent any
+  environment {
+    VERSION = '88.93.12'
+  }
+  
   stages {
     stage('Build') {
       steps {
-        echo 'Building..'
+        echo 'Building version ${VERSION}'
         // Here you can define commands for your build
       }
     }
