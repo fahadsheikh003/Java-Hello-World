@@ -1,9 +1,11 @@
-flag = false
-
 pipeline {
   agent any
   tools {
     maven 'Maven'
+  }
+  parameters {
+    choice (name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description:'version to deploy on production')
+    booleanParam(name: 'executeTests', defaultValue: false, description: 'to run test cases')
   }
   
   environment {
@@ -21,7 +23,7 @@ pipeline {
     stage('Test') {
       when {
         expression {
-          flag == false
+          params.executeTests
         }
       }
       steps {
