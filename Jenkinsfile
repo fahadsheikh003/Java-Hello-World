@@ -20,4 +20,15 @@ pipeline {
       }
     }
   }
+  post {
+    // the conditions here will execute after build is done
+    always {
+      // this action will happen always regardless the result of the build
+      echo 'Post Build condition running'
+    }
+    failure {
+      // this action will happen only if the build fails
+      echo 'Failed to build'
+    }
+  }
 }
